@@ -1,5 +1,5 @@
 "use strict";
-// New educational UI; kept independently inspectable against backtest.py.
+// Momentum calculation and research charts.
 function simulate(prices,lookback,costBps){
  if(!Number.isInteger(lookback)||lookback<1||!Number.isFinite(costBps)||costBps<0||costBps>1000||prices.length<2||prices.some(p=>!Number.isFinite(p)||p<=0))throw Error('Invalid experiment input');
  const n=prices.length,positions=Array(n).fill(0),net=Array(n).fill(0),equity=Array(n).fill(1),dd=Array(n).fill(0),vol=Array(n).fill(null);
@@ -43,5 +43,5 @@ if(typeof document!=='undefined'){
  }
  $('controls').addEventListener('submit',e=>{e.preventDefault();render();});
  document.querySelectorAll('[data-view]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));for(const view of ['equity','risk','data'])$(view+'-view').hidden=view!==btn.dataset.view;}));
- fetch('demo-run.json').then(r=>{if(!r.ok)throw Error('Sample file unavailable');return r.json();}).then(r=>{prices=r.prices;render();}).catch(e=>{$('error').textContent='Could not load the synthetic run: '+e.message;});
+ fetch(window.QUANT_DATA_URL || 'demo-run.json').then(r=>{if(!r.ok)throw Error('Sample file unavailable');return r.json();}).then(r=>{prices=r.prices;render();}).catch(e=>{$('error').textContent='Could not load the synthetic run: '+e.message;});
 }

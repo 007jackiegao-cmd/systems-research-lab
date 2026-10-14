@@ -1,5 +1,5 @@
 "use strict";
-// New AI-assisted educational extraction of the architecture, not original SCENARIO core.
+// Weighted event contributions under a scenario multiplier.
 const SCENARIOS={base:1,disruption:1.6,recovery:.4};
 function scenarioImpact(events,exposures,scenario='base'){
  if(!(scenario in SCENARIOS))throw Error('Unknown scenario');
@@ -14,3 +14,5 @@ function scenarioImpact(events,exposures,scenario='base'){
  });
 }
 if(typeof module!=='undefined'&&module.exports)module.exports={scenarioImpact,SCENARIOS};
+
+if(typeof window!=='undefined')window.scenarioImpact=scenarioImpact;

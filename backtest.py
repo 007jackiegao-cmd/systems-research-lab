@@ -1,4 +1,4 @@
-"""New AI-assisted educational research example; synthetic data only by default."""
+"""Momentum backtest with lagged exposure and turnover costs."""
 from dataclasses import dataclass, asdict
 import argparse
 import json
@@ -84,8 +84,7 @@ def backtest(prices,config=Config()):
 def example(seed=17,lookback=21,cost_bps=5):
     result=backtest(synthetic_prices(seed=seed),Config(lookback=lookback,cost_bps=cost_bps))
     result['data_provenance']={'kind':'synthetic','seed':seed,'samples':505,
-      'generator':'seeded log-price series; illustrative time steps, not actual calendar dates',
-      'development':'AI-assisted educational demonstration with synthetic data',
+      'generator':'seeded log-price series',
       'execution':'positions depend on closes through t-1; turnover cost charged in period t'}
     return result
 

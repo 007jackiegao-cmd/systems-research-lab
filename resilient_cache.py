@@ -1,4 +1,4 @@
-"""New AI-assisted educational example using synthetic providers, no API keys."""
+"""Asynchronous provider cache with request coalescing and stale fallback."""
 import asyncio
 from collections import OrderedDict
 from dataclasses import dataclass

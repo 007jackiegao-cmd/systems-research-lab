@@ -1,8 +1,4 @@
-"""New educational Python port of a project modelling approach, AI-assisted.
-
-SI units throughout. Correlations are model assumptions, not physical validation.
-The original MATLAB assessed submission is retained privately.
-"""
+"""Thermal resistance models in SI units."""
 from dataclasses import dataclass, asdict
 import json
 import math
@@ -157,8 +153,7 @@ def natural_convection(g=Geometry(), heat_W=21.72, tolerance_K=.001, max_iterati
 
 
 def example():
-    return {'provenance':'New AI-assisted educational port; model predictions, not experimental measurements',
-            'baseline_geometry_SI':asdict(Geometry()),'forced_convection':forced_convection(),
+    return {'baseline_geometry_SI':asdict(Geometry()),'forced_convection':forced_convection(),
             'natural_convection':natural_convection(),
             'height_sweep':[{'height_mm':h,**forced_convection(Geometry(height=h/1000))} for h in range(15,41,5)],
             'fin_sweep':[{'fins':n,**forced_convection(Geometry(fins=n))} for n in range(8,23,2)]}

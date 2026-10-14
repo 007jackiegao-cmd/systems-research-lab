@@ -15,3 +15,5 @@ const MISSION_SEED = {
   settings:{density:'comfortable',recordRetention:'本地保留',notifications:true},
   checks:['任务目标与现场边界','工具身份与安装记录','人员职责与观察计划']
 };
+
+window.MISSION_SEED=MISSION_SEED;
