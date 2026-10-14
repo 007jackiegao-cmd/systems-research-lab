@@ -1,0 +1,13 @@
+"use strict";
+const assert=require('node:assert/strict');
+const {scenarioImpact}=require('./scenario-engine.js');
+const exposure=[{id:'sample',label:'Sample research basket',weights:{logistics:2,energy:-1}}];
+const events=[{id:'a',category:'logistics',shock:3},{id:'b',category:'energy',shock:4}];
+assert.equal(scenarioImpact(events,exposure)[0].score,2);
+assert.ok(Math.abs(scenarioImpact(events,exposure,'disruption')[0].score-3.2)<1e-12);
+assert.equal(scenarioImpact(events,exposure)[0].conflict,true);
+assert.equal(scenarioImpact([...events,events[0]],exposure)[0].score,2);
+assert.equal(scenarioImpact([],exposure)[0].score,0);
+assert.throws(()=>scenarioImpact(events,exposure,'unknown'));
+assert.throws(()=>scenarioImpact([{id:'bad',category:'energy',shock:NaN}],exposure));
+console.log('7 scenario checks passed: aggregation, scaling, conflicts, deduplication, empty input and invalid inputs.');

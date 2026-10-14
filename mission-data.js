@@ -1,0 +1,17 @@
+const MISSION_SEED = {
+  schema:2, workspace:'研发工作区', source:'合成演示资料集', role:'admin', actorId:'P03', lang:'en',
+  selected:'OBS-20000101-01',
+  people:[{id:'P01',name:'研发操作员',role:'operator',enabled:true},{id:'P02',name:'资料复核员',role:'reviewer',enabled:true},{id:'P03',name:'工作区管理员',role:'admin',enabled:true}],
+  devices:[{id:'DEVICE-01',name:'Sample Device 01',type:'四旋翼',status:'已登记',connection:'未接入',version:1,interface:'接口研究配置',note:'外观概念参考；无连接记录'},{id:'DEVICE-02',name:'Sample Device 02',type:'四旋翼',status:'维护中',connection:'未接入',version:1,interface:'接口研究配置',note:'本地资源登记'}],
+  tools:[{id:'SV-01',name:'视觉观察工具',en:'Visual Observation Tool',category:'观察',status:'已登记',version:1,identity:'本地登记',note:'可见光、距离与热信息的感知方向'},{id:'AG-01',name:'台架工具',en:'Bench Tool',category:'台架交互',status:'已登记',version:1,identity:'本地登记',note:'轻训练件的受控接触与持握研究'}],
+  evidence:[{id:'E-001',name:'R-03 基座近照',task:'OBS-20000101-01',src:'sample-structure.svg',source:'合成结构示意图',time:'2000-01-01 10:06:18',timeSource:'预置示例时间',hash:'dc454cb28a11da9a1aee8f3d067aa61d3bd5eddbc856d18e9fffd1f528a110a2',width:1586,height:992,version:1,roi:{x:38,y:42,width:32,height:34},roiVersion:1,annotations:[{label:'R-03 基座与锚固',type:'人工区域'}]}],
+  tasks:[
+    {id:'OBS-20000101-01',name:'岸边栏杆基座巡检',project:'滨水设施观察',target:'R-03 栏杆基座',type:'observation',owner:'P01',reviewer:'P02',device:'DEVICE-01',tool:'SV-01',date:'2000-01-01',status:'待复核',goal:'记录基座表面与锚固区域，补足另一侧观察依据。',checks:[true,true,true],prepared:true,version:1,configVersion:1,evidence:['E-001'],suggestion:'补充基座另一侧近照',suggestionVersion:1,queue:null,approval:null,comments:[],events:[{id:'EV01',time:'2000-01-01T09:00:00.000Z',name:'任务资料建立',actor:'工作区管理员',detail:'参考资料集 · 目标 R-03',type:'task'},{id:'EV02',time:'2000-01-01T09:06:18.000Z',name:'关联观察依据',actor:'研发操作员',detail:'E-001 · 人工区域 v1',type:'evidence'},{id:'EV03',time:'2000-01-01T09:07:04.000Z',name:'提交资料复核',actor:'研发操作员',detail:'复核范围：后续观察建议',type:'review'}]},
+    {id:'PRE-20000101-02',name:'接口复装检查',project:'Sample Device 接口研究',target:'锁止与接合',type:'observation',owner:'P01',reviewer:'P02',device:'DEVICE-01',tool:'SV-01',date:'2000-01-02',status:'待准备',goal:'整理人工接口复装条件。',checks:[false,false,false],prepared:false,version:1,configVersion:1,evidence:[],suggestion:'',suggestionVersion:1,queue:null,approval:null,comments:[],events:[]},
+    {id:'BEN-20000101-03',name:'轻训练件持握方案',project:'台架工具实验',target:'轻训练件',type:'bench',owner:'P01',reviewer:'P02',device:'DEVICE-01',tool:'AG-01',date:'2000-01-03',status:'草稿',goal:'固定台架条件下整理持握和释放步骤。',checks:[false,false,false],prepared:false,version:1,configVersion:1,evidence:[],suggestion:'',suggestionVersion:1,queue:null,approval:null,comments:[],events:[]},
+    {id:'PRE-20000101-04',name:'视觉观察工具安装资料检查',project:'工具接口研究',target:'SV-01 安装记录',type:'observation',owner:'P01',reviewer:'P02',device:'DEVICE-02',tool:'SV-01',date:'2000-01-04',status:'待准备',goal:'核对安装资料、线束与工具身份。',checks:[false,false,false],prepared:false,version:1,configVersion:1,evidence:[],suggestion:'',suggestionVersion:1,queue:null,approval:null,comments:[],events:[]},
+    {id:'DOC-20000101-05',name:'研发资料归集',project:'项目资料',target:'资料索引',type:'observation',owner:'P03',reviewer:'P02',device:'DEVICE-01',tool:'SV-01',date:'2000-01-05',status:'已归档',goal:'保存已有参考资料索引。',checks:[false,false,false],prepared:false,version:1,configVersion:1,evidence:[],suggestion:'',suggestionVersion:1,queue:null,approval:null,comments:[],events:[]}
+  ],
+  settings:{density:'comfortable',recordRetention:'本地保留',notifications:true},
+  checks:['任务目标与现场边界','工具身份与安装记录','人员职责与观察计划']
+};
