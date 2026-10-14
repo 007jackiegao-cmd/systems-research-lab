@@ -1,0 +1,52 @@
+name: Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove superseded files
+        if: hashFiles('migrate-source.py') != ''
+        run: |
+          python3 migrate-source.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Remove extra docs and generated files'
+          git push
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Tests
+        run: |
+          if [ -f test-demo.mjs ]; then npm test; fi
+          if [ -f test_algorithms.py ]; then python3 -m unittest -v test_algorithms.py; fi
+          if [ -f test_backtest.py ]; then python3 -m unittest -v test_backtest.py; fi
+          if [ -f test-parity.js ]; then node test-parity.js; fi
+          if [ -f test-scenario.js ]; then node test-scenario.js; fi
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
