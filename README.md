@@ -14,6 +14,14 @@ python3 -m http.server 8080 --bind 127.0.0.1
 
 Open `http://localhost:8080/`. No account, API key or broker connection is needed. Dependencies and map geometry are included locally; the demonstrations make no third-party data requests.
 
+## Featured project
+
+**SMART3D · Parametric Studio** — a focused parametric modelling and assembly showcase with genuine browser mesh Boolean operations, bill of materials and GLB export.
+
+[Open the studio](https://007jackiegao-cmd.github.io/smart3d-showcase/) · [Inspect source and architecture](https://github.com/007jackiegao-cmd/smart3d-showcase)
+
+The original backend remains private. This new public demonstration uses synthetic components and clearly states its validation scope.
+
 ## Included demonstrations
 
 | Component | Runnable interface | Inspectable implementation |
