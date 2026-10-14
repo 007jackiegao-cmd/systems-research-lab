@@ -1,6 +1,8 @@
 # Systems Research Lab
 
-An anonymous collection of inspectable engineering demonstrations: synthetic quantitative research, event/scenario exploration, mission review workflows and numerical algorithms.
+**Computational engineering, connected workflows and inspectable systems.**
+
+An executable portfolio spanning parametric CAD, quantitative research, scenario analysis, mission review and numerical modelling. Each project connects explicit inputs with real calculations, interactive diagnostics and portable outputs.
 
 **Status:** AI-assisted educational prototypes. All event records, actors, device labels, dates and market series are fictional examples. Interface images show either this runnable demonstration or explicitly labelled design exploration. This repository contains no biography, education or employment history, contact information, private archives, live accounts or credentials.
 
@@ -16,7 +18,7 @@ Open `http://localhost:8080/`. No account, API key or broker connection is neede
 
 ## Featured project
 
-**SMART3D · Parametric Studio** — a focused parametric modelling and assembly showcase with genuine browser mesh Boolean operations, bill of materials and GLB export.
+**SMART3D · Parametric Studio** — an interactive parametric design workbench connecting real mesh Boolean computation, reusable assembly instances, structured BOM information and GLB export.
 
 [Open the studio](https://007jackiegao-cmd.github.io/smart3d-showcase/) · [Inspect source and architecture](https://github.com/007jackiegao-cmd/smart3d-showcase)
 
