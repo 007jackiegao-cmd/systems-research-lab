@@ -1,4 +1,4 @@
-# Methodology and limits
+# Quantitative Methodology
 
 ## Data
 
@@ -16,7 +16,7 @@ Equity compounds net returns from 1. Drawdown is equity divided by its running m
 
 ## Validation
 
-Eight tests cover seeded reproducibility, flat series, lagged signals, future-data perturbations, transaction costs, a known drawdown, input validation and missing warm-up values. The browser implementation should be checked against the same Python reference run before publication.
+Eight tests cover seeded reproducibility, flat series, lagged signals, future-data perturbations, transaction costs, a known drawdown, input validation and missing warm-up values. A separate field-by-field parity check compares the browser calculation with Python reference outputs across several configurations.
 
 ## Future research
 
